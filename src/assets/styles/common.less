@@ -1,0 +1,367 @@
+@charset "UTF-8";
+@import "./base.less";
+
+* {
+	-webkit-tap-highlight-color: transparent;
+	position: relative;
+	.sizing;
+}
+
+html {
+	height: 100%;
+	font-size: 10px;
+}
+
+html[data-dpr="1"] {
+	body,
+	.fixed-100 {
+		max-width: 640px;
+	}
+}
+
+body {
+	width: 100%;
+	min-width: 320px;
+	max-width: 640px;
+	height: 100%;
+	margin: 0 auto;
+	font: 1.2rem/1.5 "Helvetica Neue", Helvetica, STHeiTi, "Droid Sans Fallback",
+		"Microsoft YaHei";
+	background: #fff;
+	color: black;
+	// -moz-user-select: none;
+	// -webkit-user-select: none;
+	// -ms-user-select: none;
+	// -khtml-user-select: none;
+	// user-select: none;
+	-webkit-text-size-adjust: none !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+header,
+footer,
+section,
+aside,
+figure,
+nav {
+	display: block;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	display: block;
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+
+ul,
+li,
+dl,
+dt,
+dd,
+p {
+	display: block;
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+input,
+button,
+textarea {
+	display: block;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	background: none;
+	border: 0;
+	-webkit-appearance: none;
+	outline: none;
+	border-radius: 0;
+	font: 1.2rem/1.5 "Helvetica Neue", Helvetica, STHeiTi, "Droid Sans Fallback",
+		"Microsoft YaHei";
+}
+
+button {
+	text-align: center;
+	cursor: pointer;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	empty-cells: show;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+	border: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+	&:focus {
+		outline: thin dotted #000;
+		outline: 0.5rem auto -webkit-focus-ring-color;
+		outline-offset: -0.2rem;
+	}
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+	&:visited {
+		color: #000;
+	}
+}
+
+i {
+	font-style: normal;
+}
+
+*[placeholder]:empty:before,
+*[contenteditable="true"] &:empty:before {
+	content: attr(placeholder);
+	color: #a9a9a9;
+}
+
+*[contenteditable="true"] &:focus:before {
+	// content:none;
+}
+
+.yuan:before {
+	content: "¥";
+	font-family: "Arial";
+}
+
+.clearfix {
+	&::before,
+	&::after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		overflow: hidden;
+	}
+}
+
+.dialog-tips {
+	position: fixed !important;
+	width: 60%;
+	max-width: 480px;
+	padding: 2rem 1.2rem;
+	.radius(0.5rem);
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	text-align: center;
+	font-size: 1.4rem;
+	z-index: 9999;
+}
+
+.tab {
+	.container {
+		border-bottom: 1px solid #d2d2d2;
+		padding: 0 1rem;
+		background: white;
+		z-index: 1;
+		li {
+			border-bottom: 0.2rem solid rgba(255, 255, 255, 0);
+			margin-bottom: -1px;
+			line-height: 4rem;
+			text-align: center;
+			font-size: 1.5rem;
+		}
+		li.current {
+			border-bottom-color: #dc1e32;
+		}
+	}
+}
+
+/**
+* 确认按钮
+ */
+.confirm-button {
+	display: block;
+	height: 3rem;
+	.radius(0.2rem);
+	font-size: 1.4rem;
+	line-height: 3rem;
+	text-align: center;
+	background: #dc1d24;
+	color: white;
+}
+
+/**
+ * alert提示
+ */
+.msg-dialog {
+	width: 60%;
+	max-width: 20.48rem;
+	padding: 2rem 1.2rem;
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	text-align: center;
+	font-size: 1.3rem;
+	z-index: 9999;
+	.center-middle;
+	position: fixed;
+	.radius(0.5rem);
+}
+
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center {
+	text-align: center;
+}
+
+.hide {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.red {
+	color: #dc1e32;
+}
+
+.gray-scale {
+	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-webkit-filter: grayscale(1);
+}
+
+.nowrap {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+// 多行禁止溢出
+.more-nowrap {
+	word-break: break-all;
+	text-overflow: ellipsis;
+	display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+	-webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+	overflow: hidden; /** 隐藏超出的内容 **/
+}
+
+.d-flex {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.flex-1 {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+	width: 0;
+	-webkit-flex-basis: 0;
+	-ms-flex-preferred-size: 0;
+	flex-basis: 0;
+	max-width: 100%;
+	display: block;
+}
+
+.fixed-100 {
+	.fixed-100();
+}
+
+.aslt-100 {
+	.aslt-100();
+}
+
+.center-middle {
+	.center-middle();
+}
+
+.sizing {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.click-right-arrow:after {
+	.arrow(0.8rem, 0.8rem, 0.1rem, 135deg, #999);
+}
+
+.dialog-tips {
+	position: fixed !important;
+	width: 60%;
+	max-width: 480px;
+	padding: 2rem 1.2rem;
+	.radius(0.5rem);
+	background: rgba(0, 0, 0, 0.8);
+	color: white;
+	text-align: center;
+	font-size: 1.4rem;
+	z-index: 9999;
+}
+
+/**
+* 轮播样式
+**/
+.swiper-pagination {
+	bottom: 0;
+	.swiper-pagination-bullet {
+		background: #fff;
+		opacity: 0.5;
+		&.swiper-pagination-bullet-active {
+			background: #fff;
+			opacity: 1;
+		}
+		&.swiper-pagination-fraction {
+			bottom: 0;
+		}
+	}
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+	bottom: 0;
+}
+
+.complaint-box-shadow {
+	width: auto;
+	margin: 0 1rem;
+	background: #fff;
+	box-shadow: 0 1px 6px 0 rgba(205, 206, 207, 0.99);
+	.radius (0.3rem);
+}
+
+/**
+ * 防止微信拖动出现WebView底部黑色背景
+ */
+.wrap {
+	height: 100%;
+	background: #f2f2f2;
+}

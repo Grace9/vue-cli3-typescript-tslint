@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+@gray: #8c8c8c;
+@red: #dc1e32;
+
+.radius (@width) {
+	-webkit-border-radius: @width;
+	-moz-border-radius: @width;
+	border-radius: @width;
+}
+
+.box-sizing () {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.translate (@x, @y) {
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+
+.transform-rotate (@deg) {
+	-webkit-transform: rotate(@deg);
+	-moz-transform: rotate(@deg);
+	transform: rotate(@deg);
+}
+
+.center-middle (@x:-50%, @y:-50%) {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: scale(1, 1) translate(@x, @y);
+	-moz-transform: scale(1, 1) translate(@x, @y);
+	transform: scale(1, 1) translate(@x, @y);
+}
+
+.fixed-100 (@top:0, @bottom:0) {
+	position: fixed;
+	width: 100%;
+	min-width: 320px;
+	max-width: 640px;
+	top: @top;
+	bottom: @bottom;
+}
+
+.aslt-100 (@top:0, @bottom:0) {
+	position: absolute;
+	width: 100%;
+	min-width: 320px;
+	max-width: 640px;
+	top: @top;
+	bottom: @bottom;
+}
+
+.arrow (@width, @height, @size, @rotate, @color) {
+	content: "";
+	position: absolute;
+	width: @width;
+	height: @height;
+	top: 50%;
+	border-top: @size solid @color;
+	border-left: @size solid @color;
+	margin-top: -@width * 0.6;
+	.transform-rotate(@rotate);
+}
+
+.background (@img, @sizeX:100%, @sizeY:100%, @posX:0, @posY:0) {
+	background: url(@img) no-repeat;
+	background-size: @sizeX @sizeY;
+	background-position: @posX @posY;
+}
+
+//背景渐变
+.linear(@color1, @color2, @color3) {
+	background: -webkit-linear-gradient(@color1, @color2, @color3);
+	background: -moz-linear-gradient(@color1, @color2, @color3);
+	background: linear-gradient(@color1, @color2, @color3);
+}
+
+.translate-rotate (@num1, @num2, @deg) {
+	-webkit-transform: translate(@num1, @num2) rotate(@deg);
+	-moz-transform: translate(@num1, @num2) rotate(@deg);
+	transform: translate(@num1, @num2) rotate(@deg);
+}
+
+.box-shadow (@num1, @num2, @num3, @num4, @color) {
+	-webkit-box-shadow: @num1 @num2 @num3 @num4 @color;
+	-moz-box-shadow: @num1 @num2 @num3 @num4 @color;
+	box-shadow: @num1 @num2 @num3 @num4 @color;
+}
