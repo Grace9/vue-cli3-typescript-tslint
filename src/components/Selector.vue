@@ -88,6 +88,16 @@ export default class Selector extends Vue {
 			this.regionCnScShow = false
 			this.cityCnScShow = false
 			this.areaCnScShow = true
+			//选择项是热门城市显示红色
+			let hostCiryArr = []
+			this.hostCiry.forEach((element,index) => {
+				hostCiryArr.push(element.fullName)
+			});
+			if(hostCiryArr.indexOf(this.cityString)!== -1){
+				this.hotCityIndex = hostCiryArr.indexOf(this.cityString)
+			}else{
+				this.hotCityIndex = null
+			}
 		}else{
 			this.areaString = i.fullName
 			this.areaIndex = n
@@ -112,6 +122,16 @@ export default class Selector extends Vue {
 		this.regionCnScShow = false
 		this.cityCnScShow = true
 		this.areaCnScShow = false
+		//切换城市的时候热门城市的变化
+		let hostCiryArr = []
+		this.hostCiry.forEach((element,index) => {
+			hostCiryArr.push(element.fullName)
+		});
+		if(hostCiryArr.indexOf(this.cityString)!== -1){
+			this.hotCityIndex = hostCiryArr.indexOf(this.cityString)
+		}else{
+			this.hotCityIndex = null
+		}
 	}
 	updateArea() {
 		this.regionCnScShow = false
